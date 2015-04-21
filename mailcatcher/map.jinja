@@ -4,8 +4,10 @@
  #}
 {% set mailcatcher = salt['grains.filter_by']({
     'Debian': {
-        'ruby_package': 'ruby-dev',
-        'libsqlite3dev_package': 'libsqlite3-dev',
+        'dependencies': [
+            'ruby-dev',
+            'libsqlite3-dev'
+        ],
         'catchmail_bin': '/usr/local/bin/catchmail',
         'mailcatcher_bin': '/usr/local/bin/mailcatcher',
         'php_conf_d': '/etc/php5/conf.d',
@@ -14,8 +16,11 @@
         'smtp_service': 'exim4',
     },
     'RedHat': {
-        'ruby_package': 'ruby-dev',
-        'libsqlite3dev_package': 'libsqlite3-dev',
+        'dependencies': [
+            'ruby-devel',
+            'rubygems',
+            'sqlite-devel'
+        ],
         'catchmail_bin': '/usr/local/bin/catchmail',
         'mailcatcher_bin': '/usr/local/bin/mailcatcher',
         'php_conf_d': '/etc/php5/conf.d',
